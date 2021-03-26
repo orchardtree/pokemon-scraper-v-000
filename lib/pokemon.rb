@@ -48,6 +48,7 @@ class Pokemon
       WHERE id = ?
     SQL
     test = db.execute(sql, id)
+    pokemon = 
     binding.pry
   end
 end
