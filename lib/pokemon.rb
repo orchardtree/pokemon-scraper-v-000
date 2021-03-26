@@ -42,14 +42,19 @@ class Pokemon
 =end
   
   def self.find(id, db)
+    pokemon = {}
     sql = <<-SQL
       SELECT *
       FROM pokemon
       WHERE id = ?
     SQL
-    test = db.execute(sql, id)
-    pokemon = 
-    binding.pry
+    pokemon_found = db.execute(sql, id)
+    pokemon[:id] = pokemon_found[0][0]
+    pokemon[:name] = pokemon_found[0][1]
+    pokemon[:type] = pokemon_found[0][2]
+    pokemon[:db] = db
+    self.new(pokemon)
+    #binding.pry
   end
 end
 
