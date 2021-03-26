@@ -42,12 +42,12 @@ class Pokemon
 =end
   
   def self.find(id, db)
-    #sql = <<-SQL
-    #  SELECT *
-    #  FROM pokemon
-    #  WHERE id = ?
-    #SQL
-    #db.execute(sql, id)
+    sql = <<-SQL
+      SELECT *
+      FROM pokemon
+      WHERE id = ?
+    SQL
+    test = db.execute(sql, id)
     binding.pry
   end
 end
